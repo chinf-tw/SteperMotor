@@ -12,7 +12,7 @@ GPIO.setup(a1_pin, GPIO.OUT)
 GPIO.setup(a2_pin, GPIO.OUT)
 GPIO.setup(b1_pin, GPIO.OUT)
 GPIO.setup(b2_pin, GPIO.OUT)
-GPIO.setup(en,GPIO.OUT)
+
 
 GPIO.output(en, GPIO.HIGH)
 
