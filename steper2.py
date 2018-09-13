@@ -21,5 +21,5 @@ GPIO.output(b1_pin, GPIO.HIGH)
 GPIO.output(b2_pin, GPIO.HIGH)
 
 isY = input("return 'Y' to GPIO.cleanup")
-if isY = "Y"
+if isY == "Y"
     GPIO.cleanup()
