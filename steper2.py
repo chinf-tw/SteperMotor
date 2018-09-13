@@ -16,9 +16,9 @@ GPIO.setup(b2_pin, GPIO.OUT)
 GPIO.output(en, GPIO.HIGH)
 
 GPIO.output(a1_pin, GPIO.HIGH)
-GPIO.output(a2_pin, GPIO.HIGH)
+GPIO.output(a2_pin, GPIO.LOW)
 GPIO.output(b1_pin, GPIO.HIGH)
-GPIO.output(b2_pin, GPIO.HIGH)
+GPIO.output(b2_pin, GPIO.LOW)
 
 isY = input("return 'Y' to GPIO.cleanup")
 if isY == "Y":
