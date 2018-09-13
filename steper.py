@@ -3,10 +3,10 @@ import time
 
 GPIO.setmode(GPIO.BCM)
 en = 12
-a1_pin = 17
-a2_pin = 27
-b1_pin = 23
-b2_pin = 24
+a1_pin = 17 #A
+a2_pin = 27 #B
+b1_pin = 23 #/A
+b2_pin = 24 #/B
 GPIO.setup(en, GPIO.OUT)
 GPIO.setup(a1_pin, GPIO.OUT)
 GPIO.setup(a2_pin, GPIO.OUT)

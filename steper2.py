@@ -13,13 +13,16 @@ GPIO.setup(a2_pin, GPIO.OUT)
 GPIO.setup(b1_pin, GPIO.OUT)
 GPIO.setup(b2_pin, GPIO.OUT)
 
-GPIO.output(en, GPIO.HIGH)
+
 
 GPIO.output(a1_pin, GPIO.HIGH)
 GPIO.output(a2_pin, GPIO.LOW)
 GPIO.output(b1_pin, GPIO.HIGH)
 GPIO.output(b2_pin, GPIO.LOW)
 
-isY = raw_input("return 'Y' to GPIO.cleanup")
-if isY == "Y":
-    GPIO.cleanup()
+# GPIO.output(en, GPIO.HIGH)
+pwm = GPIO.PWM(12, 50)
+pwm.start(50)
+input('点击回车停止：')
+pwm.stop()
+GPIO.cleanup()
