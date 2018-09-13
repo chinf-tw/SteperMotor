@@ -12,7 +12,9 @@ GPIO.setup(a1_pin, GPIO.OUT)
 GPIO.setup(a2_pin, GPIO.OUT)
 GPIO.setup(b1_pin, GPIO.OUT)
 GPIO.setup(b2_pin, GPIO.OUT)
-GPIO.output(en,GPIO.OUT)
+GPIO.setup(en,GPIO.OUT)
+
+GPIO.output(en, GPIO.HIGH)
 
 forward_seq = ['1010', '0110', '0101', '1001']
 reverse_seq = ['1001', '0101', '0110', '1010']
