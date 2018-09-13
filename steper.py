@@ -36,13 +36,16 @@ def set_step(step):
     GPIO.output(a2_pin, step[1] == '1')
     GPIO.output(b1_pin, step[2] == '1')
     GPIO.output(b2_pin, step[3] == '1')
+try:
+    while True:
+        set_step('0000')
+        delay = raw_input("Delay between steps (milliseconds)?")
+        steps = raw_input("How many steps forward? ")
+        forward(int(delay) / 1000.0, int(steps))
 
-while True:
-    set_step('0000')
-    delay = raw_input("Delay between steps (milliseconds)?")
-    steps = raw_input("How many steps forward? ")
-    forward(int(delay) / 1000.0, int(steps))
-
-    set_step('0000')
-    steps = raw_input("How many steps backwards? ")
-    backwards(int(delay) / 1000.0, int(steps))
+        set_step('0000')
+        steps = raw_input("How many steps backwards? ")
+        backwards(int(delay) / 1000.0, int(steps))
+except KeyboardInterrupt:
+    pass
+GPIO.cleanup()
