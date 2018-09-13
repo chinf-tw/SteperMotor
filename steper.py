@@ -2,16 +2,17 @@ import RPi.GPIO as GPIO
 import time
 
 GPIO.setmode(GPIO.BCM)
-
+en = 12
 a1_pin = 17
 a2_pin = 27
 b1_pin = 23
 b2_pin = 24
-
+GPIO.setup(en, GPIO.OUT)
 GPIO.setup(a1_pin, GPIO.OUT)
 GPIO.setup(a2_pin, GPIO.OUT)
 GPIO.setup(b1_pin, GPIO.OUT)
 GPIO.setup(b2_pin, GPIO.OUT)
+GPIO.output(en,GPIO.OUT)
 
 forward_seq = ['1010', '0110', '0101', '1001']
 reverse_seq = ['1001', '0101', '0110', '1010']
