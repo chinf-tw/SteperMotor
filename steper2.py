@@ -20,6 +20,6 @@ GPIO.output(a2_pin, GPIO.HIGH)
 GPIO.output(b1_pin, GPIO.HIGH)
 GPIO.output(b2_pin, GPIO.HIGH)
 
-input("return to stop")
-
-GPIO.cleanup()
+isY = input("return 'Y' to GPIO.cleanup")
+if isY = "Y"
+    GPIO.cleanup()
