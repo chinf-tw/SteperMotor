@@ -23,6 +23,6 @@ GPIO.output(en, dataput[4] == '1')
 
 pwm = GPIO.PWM(12, 50)
 pwm.start(50)
-input('輸入結束'')
+input('輸入結束')
 pwm.stop()
 GPIO.cleanup()
