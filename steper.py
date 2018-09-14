@@ -16,8 +16,8 @@ GPIO.setup(b2_pin, GPIO.OUT)
 
 GPIO.output(en, GPIO.HIGH)
 
-forward_seq = ['0111', '1011', '1101', '1110']
-reverse_seq = ['1110', '1101', '1011', '0111']
+forward_seq = ['1010', '0110', '0101', '1001']
+reverse_seq = ['1001', '0101', '0110', '1010']
 
 def forward(delay, steps):
     for i in range(steps):
