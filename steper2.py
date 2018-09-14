@@ -13,16 +13,16 @@ GPIO.setup(a2_pin, GPIO.OUT)
 GPIO.setup(b1_pin, GPIO.OUT)
 GPIO.setup(b2_pin, GPIO.OUT)
 
+dataput = input('請輸入想輸出的點位：\n')
 
+GPIO.output(a1_pin, dataput[0] == '1')
+GPIO.output(a2_pin, dataput[1] == '1')
+GPIO.output(b1_pin, dataput[2] == '1')
+GPIO.output(b2_pin, dataput[3] == '1')
+GPIO.output(en, dataput[4] == '1')
 
-GPIO.output(a1_pin, GPIO.HIGH)
-GPIO.output(a2_pin, GPIO.LOW)
-GPIO.output(b1_pin, GPIO.HIGH)
-GPIO.output(b2_pin, GPIO.LOW)
-
-# GPIO.output(en, GPIO.HIGH)
 pwm = GPIO.PWM(12, 50)
 pwm.start(50)
-input('点击回车停止：')
+input('輸入結束'')
 pwm.stop()
 GPIO.cleanup()
