@@ -18,8 +18,8 @@ GPIO.output(en, GPIO.HIGH)
 
 # forward_seq = ['1000', '1100', '0100', '0100', '0010', '0011', '0001', '0100']
 # forward_seq = ['1010', '0110', '0101', '1001']
-forward_seq = ['0101', '1001', '1010', '0110']
-reverse_seq = ['1001', '0101', '0110', '1010']
+forward_seq = ['1100', '0110', '0011', '1001']
+reverse_seq = ['1001', '0011', '0110', '1100']
 
 def forward(delay, steps):
     for i in range(steps):
