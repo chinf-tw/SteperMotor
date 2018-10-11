@@ -25,7 +25,16 @@ def forward(delay, steps):
     for i in range(steps):
         for step in forward_seq:
             set_step(step)
+            print(delay)
             time.sleep(delay)
+            
+
+def forward_single(delay):
+    for step in forward_seq:
+        set_step(step)
+        time.sleep(delay)
+        print(delay)
+
 
 def backwards(delay, steps):
     for i in range(steps):
@@ -53,13 +62,17 @@ def NonlinearSpeed(steps):
 
 
     for delay in range(50,10,-(NonlinearStep)):
-        forward(delay,1)
+        # forward(delay,1)
+        forward_single(delay)
+        
         pass
 
     forward(10,keepStep)
+    
 
     for delay in range(10,50,NonlinearStep):
-        forward(delay,1)
+        # forward(delay,1)
+        forward_single(delay)
         pass
 
 try:
@@ -69,7 +82,7 @@ try:
         steps = input("How many steps forward? ")
         NonlinearSpeed(int(steps))
         # forward(int(delay) / 1000.0, int(steps))
-
+        
         set_step('0000')
         steps = input("How many steps backwards? ")
         NonlinearSpeed(int(steps))
