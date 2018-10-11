@@ -54,7 +54,9 @@ def NonlinearSpeed(steps):
     d = 0
     NonlinearStep = 1
     keepStep = 0
-    
+    multiple = 1
+    StartDelay = 30 * multiple
+    EndDelay = 5 * multiple
     # if steps < 500:
     #     print("steps < 500")
     #     d = steps/100
@@ -62,21 +64,18 @@ def NonlinearSpeed(steps):
     #     print("NonlinearStep : ",NonlinearStep)
     #     keepStep = steps - NonlinearStep * 2
     #     print("keepStep : ", keepStep)
-        
+    keepStep = steps - NonlinearStep * 2
 
 
-    for delay in range(60,10,-(NonlinearStep)):
-        # forward(delay,1)
-        forward_single(delay/2000)
-        
+    for delay in range(StartDelay,EndDelay,-(NonlinearStep)):
+        forward_single(delay/(1000 * multiple))
         pass
 
     forward(5/1000,keepStep)
     
 
-    for delay in range(10,60,NonlinearStep):
-        # forward(delay,1)
-        forward_single(delay/2000)
+    for delay in range(EndDelay,StartDelay,NonlinearStep):
+        forward_single(delay/(1000 * multiple))
         pass
 
 try:
