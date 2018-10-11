@@ -80,9 +80,9 @@ def NonlinearSpeed(steps):
             print("Start : ", delay)
             pass
     if isNonlinear:
-        forward(5/1000,keepStep)
+        forward(5/1000,int(keepStep))
     else:
-        forward(5/1000,steps)
+        forward(5/1000,int(steps))
     
     if isNonlinear:
         for delay in range(EndDelay,StartDelay+1,NonlinearStep):
