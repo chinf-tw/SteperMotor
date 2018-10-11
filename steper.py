@@ -60,7 +60,7 @@ def NonlinearSpeed(steps):
         d = steps/100
         NonlinearStep = int(40/d) + 1
         print("NonlinearStep : ",NonlinearStep)
-        keepStep = keepStep - NonlinearStep * 2
+        keepStep = steps - NonlinearStep * 2
         print("keepStep : ", keepStep)
         
 
