@@ -50,13 +50,16 @@ def set_step(step):
     GPIO.output(b2_pin, step[3] == '1')
 
 def NonlinearSpeed(steps):
-    """geometric progression"""
+    """geometric progression (200 steps = Make a turn)"""
+    
     # d = 0
+
     steps = int(steps/4)
+    
     isNonlinear = True
     NonlinearStep = 1
     keepStep = 0
-    multiple = 1
+    multiple = 0.5
     StartDelay = int(30 * multiple)
     EndDelay = int(5 * multiple)
     # NonlinearStep = 
@@ -67,7 +70,7 @@ def NonlinearSpeed(steps):
     #     print("NonlinearStep : ",NonlinearStep)
     #     keepStep = steps - NonlinearStep * 2
     #     print("keepStep : ", keepStep)
-    keepStep = steps - (StartDelay - EndDelay + 1) * 2
+    keepStep = steps - (StartDelay - EndDelay + 1) / 2
     print("keepStep : ",keepStep)
     isNonlinear = keepStep > 0
 
@@ -76,8 +79,10 @@ def NonlinearSpeed(steps):
             forward_single(delay/(1000 * multiple))
             print("Start : ", delay)
             pass
-
-    forward(5/1000,keepStep)
+    if isNonlinear:
+        forward(5/1000,keepStep)
+    else:
+        forward(5/1000,steps)
     
     if isNonlinear:
         for delay in range(EndDelay,StartDelay+1,NonlinearStep):
@@ -89,15 +94,15 @@ try:
     while True:
         set_step('0000')
         # delay = raw_input("Delay between steps (milliseconds)?")
-        steps = input("How many steps forward? ")
+        steps = input("How many steps forward? (200 steps = Make a turn)")
         NonlinearSpeed(int(steps))
         # print(int(steps))
         # forward(int(delay) / 1000.0, int(steps))
         
         set_step('0000')
-        steps = input("How many steps backwards? ")
+        steps = input("How many steps backwards? (200 steps = Make a turn)")
         # NonlinearSpeed(int(steps))
-        backwards(int(5) / 1000.0, int(steps))
+        backwards(int(5) / 1000.0, int(steps/4))
 except KeyboardInterrupt:
     GPIO.cleanup()
     pass
