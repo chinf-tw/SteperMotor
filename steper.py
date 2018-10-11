@@ -55,11 +55,11 @@ def NonlinearSpeed(steps):
     NonlinearStep = 0
     keepStep = 0
     
-    # if steps < 500:
-    print("steps < 500")
-    d = steps/100
-    NonlinearStep = int(40/d) + 1
-    keepStep = keepStep - NonlinearStep * 2
+    if steps < 500:
+        print("steps < 500")
+        d = steps/100
+        NonlinearStep = int(40/d) + 1
+        keepStep = keepStep - NonlinearStep * 2
         
 
 
@@ -82,8 +82,8 @@ try:
         set_step('0000')
         # delay = raw_input("Delay between steps (milliseconds)?")
         steps = input("How many steps forward? ")
-        # NonlinearSpeed(int(steps))
-        print(int(steps))
+        NonlinearSpeed(int(steps))
+        # print(int(steps))
         # forward(int(delay) / 1000.0, int(steps))
         
         set_step('0000')
