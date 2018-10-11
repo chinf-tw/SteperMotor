@@ -39,16 +39,44 @@ def set_step(step):
     GPIO.output(a2_pin, step[1] == '1')
     GPIO.output(b1_pin, step[2] == '1')
     GPIO.output(b2_pin, step[3] == '1')
+
+def NonlinearSpeed( steps):
+    """geometric progression"""
+    d = 0
+    NonlinearStep = 0
+    keepStep = 0
+    
+    if steps < 500:
+        d = steps/100
+        NonlinearStep = int(40/d) + 1
+        keepStep = keepStep - NonlinearStep * 2
+
+
+    for delay in range(50,10,-(NonlinearStep)):
+        forward(delay,1)
+        pass
+
+    forward(10,keepStep)
+
+    for delay in range(10,50,NonlinearStep):
+        forward(delay,1)
+        pass
+
 try:
     while True:
         set_step('0000')
-        delay = raw_input("Delay between steps (milliseconds)?")
-        steps = raw_input("How many steps forward? ")
-        forward(int(delay) / 1000.0, int(steps))
+        # delay = raw_input("Delay between steps (milliseconds)?")
+        steps = input("How many steps forward? ")
+        NonlinearSpeed(steps)
+        # forward(int(delay) / 1000.0, int(steps))
 
         set_step('0000')
-        steps = raw_input("How many steps backwards? ")
-        backwards(int(delay) / 1000.0, int(steps))
+        steps = input("How many steps backwards? ")
+        NonlinearSpeed(steps)
+        # backwards(int(delay) / 1000.0, int(steps))
 except KeyboardInterrupt:
+    GPIO.cleanup()
     pass
-GPIO.cleanup()
+    
+
+
