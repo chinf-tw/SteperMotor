@@ -54,7 +54,7 @@ def NonlinearSpeed(steps):
     
     # d = 0
 
-    steps = int(steps/4)
+    
     
     isNonlinear = True
     NonlinearStep = 1
@@ -70,7 +70,7 @@ def NonlinearSpeed(steps):
     #     print("NonlinearStep : ",NonlinearStep)
     #     keepStep = steps - NonlinearStep * 2
     #     print("keepStep : ", keepStep)
-    keepStep = steps - (StartDelay - EndDelay + 1) / 2
+    keepStep = (steps - (StartDelay - EndDelay + 1) *2) /4
     print("keepStep : ",keepStep)
     isNonlinear = keepStep > 0
 
