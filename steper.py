@@ -56,7 +56,7 @@ def NonlinearSpeed(steps):
     isNonlinear = True
     NonlinearStep = 1
     keepStep = 0
-    multiple = 7/5
+    multiple = 2
     StartDelay = int(30 * multiple)
     EndDelay = int(5 * multiple)
     # if steps < 500:
