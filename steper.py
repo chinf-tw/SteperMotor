@@ -80,7 +80,8 @@ try:
         set_step('0000')
         # delay = raw_input("Delay between steps (milliseconds)?")
         steps = input("How many steps forward? ")
-        NonlinearSpeed(int(steps))
+        # NonlinearSpeed(int(steps))
+        print(int(steps))
         # forward(int(delay) / 1000.0, int(steps))
         
         set_step('0000')
