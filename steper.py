@@ -65,16 +65,16 @@ def NonlinearSpeed(steps):
         
 
 
-    for delay in range(50,10,-(NonlinearStep)):
+    for delay in range(50,5,-(NonlinearStep)):
         # forward(delay,1)
         forward_single(delay/1000)
         
         pass
 
-    forward(10/1000,keepStep)
+    forward(5/1000,keepStep)
     
 
-    for delay in range(10,50,NonlinearStep):
+    for delay in range(5,50,NonlinearStep):
         # forward(delay,1)
         forward_single(delay/1000)
         pass
