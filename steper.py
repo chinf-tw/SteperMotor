@@ -70,7 +70,7 @@ def NonlinearSpeed(steps):
     isNonlinear = keepStep > 0
 
     if isNonlinear:
-        for delay in range(StartDelay,EndDelay,-(NonlinearStep)):
+        for delay in range(StartDelay,EndDelay-1,-(NonlinearStep)):
             forward_single(delay/(1000 * multiple))
             print(delay)
             pass
@@ -78,7 +78,7 @@ def NonlinearSpeed(steps):
     forward(5/1000,keepStep)
     
     if isNonlinear:
-        for delay in range(EndDelay,StartDelay,NonlinearStep):
+        for delay in range(EndDelay,StartDelay+1,NonlinearStep):
             forward_single(delay/(1000 * multiple))
             print(delay)
             pass
