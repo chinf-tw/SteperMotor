@@ -68,6 +68,7 @@ def NonlinearSpeed(steps):
     #     keepStep = steps - NonlinearStep * 2
     #     print("keepStep : ", keepStep)
     keepStep = steps - NonlinearStep * 2
+    print(keepStep)
     isNonlinear = keepStep > 0
 
     if isNonlinear:
