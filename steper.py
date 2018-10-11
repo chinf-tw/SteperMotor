@@ -59,6 +59,7 @@ def NonlinearSpeed(steps):
         d = steps/100
         NonlinearStep = int(40/d) + 1
         keepStep = keepStep - NonlinearStep * 2
+        print("steps < 500")
 
 
     for delay in range(50,10,-(NonlinearStep)):
