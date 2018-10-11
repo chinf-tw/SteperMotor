@@ -60,8 +60,8 @@ def NonlinearSpeed(steps):
     NonlinearStep = 4
     keepStep = 0
     multiple = 1
-    StartDelay = int(28 * multiple)
-    EndDelay = int(4 * multiple)
+    StartDelay = int(28 * multiple) # 4的倍數
+    EndDelay = int(8 * multiple)    # 4的倍數
     # NonlinearStep = 
     # if steps < 500:
     #     print("steps < 500")
@@ -80,9 +80,9 @@ def NonlinearSpeed(steps):
             print("Start : ", delay)
             pass
     if isNonlinear:
-        forward(4/1000,int(keepStep))
+        forward(8/1000,int(keepStep))
     else:
-        forward(4/1000,int(steps))
+        forward(8/1000,int(steps))
     
     if isNonlinear:
         for delay in range(EndDelay,StartDelay+1,NonlinearStep):
