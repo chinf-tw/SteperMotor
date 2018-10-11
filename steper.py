@@ -52,17 +52,16 @@ def set_step(step):
 def NonlinearSpeed(steps):
     """geometric progression"""
     d = 0
-    NonlinearStep = 0
+    NonlinearStep = 1
     keepStep = 0
     
-    if steps < 500:
-        print("steps < 500")
-        # d = steps/100
-        d = 1
-        NonlinearStep = int(40/d) + 1
-        print("NonlinearStep : ",NonlinearStep)
-        keepStep = steps - NonlinearStep * 2
-        print("keepStep : ", keepStep)
+    # if steps < 500:
+    #     print("steps < 500")
+    #     d = steps/100
+    #     NonlinearStep = int(40/d) + 1
+    #     print("NonlinearStep : ",NonlinearStep)
+    #     keepStep = steps - NonlinearStep * 2
+    #     print("keepStep : ", keepStep)
         
 
 
