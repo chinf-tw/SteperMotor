@@ -25,7 +25,7 @@ def forward(delay, steps):
     for i in range(steps):
         for step in forward_seq:
             set_step(step)
-            print(delay)
+            # print(delay)
             time.sleep(delay)
             
 
@@ -33,7 +33,7 @@ def forward_single(delay):
     for step in forward_seq:
         set_step(step)
         time.sleep(delay)
-        print(delay)
+        # print(delay)
 
 
 def backwards(delay, steps):
@@ -51,7 +51,8 @@ def set_step(step):
 
 def NonlinearSpeed(steps):
     """geometric progression"""
-    d = 0
+    # d = 0
+    isNonlinear = True
     NonlinearStep = 1
     keepStep = 0
     multiple = 1
@@ -65,18 +66,19 @@ def NonlinearSpeed(steps):
     #     keepStep = steps - NonlinearStep * 2
     #     print("keepStep : ", keepStep)
     keepStep = steps - NonlinearStep * 2
+    isNonlinear = keepStep > 0
 
-
-    for delay in range(StartDelay,EndDelay,-(NonlinearStep)):
-        forward_single(delay/(1000 * multiple))
-        pass
+    if isNonlinear:
+        for delay in range(StartDelay,EndDelay,-(NonlinearStep)):
+            forward_single(delay/(1000 * multiple))
+            pass
 
     forward(5/1000,keepStep)
     
-
-    for delay in range(EndDelay,StartDelay,NonlinearStep):
-        forward_single(delay/(1000 * multiple))
-        pass
+    if isNonlinear:
+        for delay in range(EndDelay,StartDelay,NonlinearStep):
+            forward_single(delay/(1000 * multiple))
+            pass
 
 try:
     while True:
