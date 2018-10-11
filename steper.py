@@ -59,7 +59,7 @@ def NonlinearSpeed(steps):
     isNonlinear = True
     NonlinearStep = 1
     keepStep = 0
-    multiple = 0.5
+    multiple = 1
     StartDelay = int(30 * multiple)
     EndDelay = int(5 * multiple)
     # NonlinearStep = 
