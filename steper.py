@@ -52,7 +52,7 @@ def set_step(step):
 def NonlinearSpeed(steps):
     """geometric progression"""
     d = 0
-    NonlinearStep = 0.5
+    NonlinearStep = 1
     keepStep = 0
     
     # if steps < 500:
@@ -65,18 +65,18 @@ def NonlinearSpeed(steps):
         
 
 
-    for delay in range(50,5,-(NonlinearStep)):
+    for delay in range(60,10,-(NonlinearStep)):
         # forward(delay,1)
-        forward_single(delay/1000)
+        forward_single(delay/2000)
         
         pass
 
     forward(5/1000,keepStep)
     
 
-    for delay in range(5,50,NonlinearStep):
+    for delay in range(10,60,NonlinearStep):
         # forward(delay,1)
-        forward_single(delay/1000)
+        forward_single(delay/2000)
         pass
 
 try:
