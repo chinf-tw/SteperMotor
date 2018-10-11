@@ -59,7 +59,9 @@ def NonlinearSpeed(steps):
         print("steps < 500")
         d = steps/100
         NonlinearStep = int(40/d) + 1
+        print("NonlinearStep : ",NonlinearStep)
         keepStep = keepStep - NonlinearStep * 2
+        print("keepStep : ", keepStep)
         
 
 
