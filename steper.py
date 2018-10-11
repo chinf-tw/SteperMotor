@@ -97,7 +97,7 @@ try:
         set_step('0000')
         steps = input("How many steps backwards? ")
         # NonlinearSpeed(int(steps))
-        backwards(int(delay) / 1000.0, int(steps))
+        backwards(int(5) / 1000.0, int(steps))
 except KeyboardInterrupt:
     GPIO.cleanup()
     pass
