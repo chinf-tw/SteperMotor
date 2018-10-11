@@ -57,11 +57,11 @@ def NonlinearSpeed(steps):
     
     
     isNonlinear = True
-    NonlinearStep = 1
+    NonlinearStep = 4
     keepStep = 0
     multiple = 1
-    StartDelay = int(30 * multiple)
-    EndDelay = int(5 * multiple)
+    StartDelay = int(28 * multiple)
+    EndDelay = int(4 * multiple)
     # NonlinearStep = 
     # if steps < 500:
     #     print("steps < 500")
@@ -80,9 +80,9 @@ def NonlinearSpeed(steps):
             print("Start : ", delay)
             pass
     if isNonlinear:
-        forward(5/1000,int(keepStep))
+        forward(4/1000,int(keepStep))
     else:
-        forward(5/1000,int(steps))
+        forward(4/1000,int(steps))
     
     if isNonlinear:
         for delay in range(EndDelay,StartDelay+1,NonlinearStep):
@@ -102,7 +102,7 @@ try:
         set_step('0000')
         steps = input("How many steps backwards? (200 steps = Make a turn)")
         # NonlinearSpeed(int(steps))
-        backwards(int(5) / 1000.0, int(int(steps)/4))
+        backwards(4 / 1000.0, int(int(steps)/4))
 except KeyboardInterrupt:
     GPIO.cleanup()
     pass
