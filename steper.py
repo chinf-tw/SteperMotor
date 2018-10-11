@@ -52,6 +52,7 @@ def set_step(step):
 def NonlinearSpeed(steps):
     """geometric progression"""
     # d = 0
+    steps = int(steps/4)
     isNonlinear = True
     NonlinearStep = 1
     keepStep = 0
