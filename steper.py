@@ -41,7 +41,7 @@ def NonlinearSpeed(steps):
             print("End : ", delay)
             pass
 steper = StepMotor()
-delay = 4/1000
+delay = 8/1000
 try:
     while True:
         
