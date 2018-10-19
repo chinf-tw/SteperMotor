@@ -41,7 +41,7 @@ import time
 #             print("End : ", delay)
 #             pass
 steper = StepMotor()
-delay = 8/1000
+delay = 10/1000
 try:
     while True:
         
