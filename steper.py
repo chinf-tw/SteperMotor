@@ -1,54 +1,4 @@
-import RPi.GPIO as GPIO
-import time
-
-GPIO.setmode(GPIO.BCM)
-en = 12
-a1_pin = 17 #A
-a2_pin = 27 #B
-b1_pin = 23 #/A
-b2_pin = 24 #/B
-GPIO.setup(en, GPIO.OUT)
-GPIO.setup(a1_pin, GPIO.OUT)
-GPIO.setup(a2_pin, GPIO.OUT)
-GPIO.setup(b1_pin, GPIO.OUT)
-GPIO.setup(b2_pin, GPIO.OUT)
-
-
-GPIO.output(en, GPIO.HIGH)
-
-# forward_seq = ['1000', '1100', '0100', '0100', '0010', '0011', '0001', '0100']
-# forward_seq = ['1010', '0110', '0101', '1001']
-forward_seq = ['1100', '0110', '0011', '1001']
-reverse_seq = ['1001', '0011', '0110', '1100']
-
-def forward(delay, steps):
-    for i in range(steps):
-        for step in forward_seq:
-            set_step(step)
-            # print(delay)
-            time.sleep(delay)
-            
-
-def forward_single(delay):
-    for step in forward_seq:
-        set_step(step)
-        time.sleep(delay)
-        # print(delay)
-
-
-def backwards(delay, steps):
-    for i in range(steps):
-        for step in reverse_seq:
-            set_step(step)
-            time.sleep(delay)
-
-def set_step(step):
-    GPIO.output(en, GPIO.HIGH)
-    GPIO.output(a1_pin, step[0] == '1')
-    GPIO.output(a2_pin, step[1] == '1')
-    GPIO.output(b1_pin, step[2] == '1')
-    GPIO.output(b2_pin, step[3] == '1')
-
+from vendor.StepMotor import StepMotor
 def NonlinearSpeed(steps):
     """geometric progression (200 steps = Make a turn)"""
     
@@ -89,23 +39,15 @@ def NonlinearSpeed(steps):
             forward_single(delay/(1000 * multiple))
             print("End : ", delay)
             pass
-
+steper = StepMotor()
+delay = 4/1000
 try:
     while True:
-        # set_step('0000')
-        # delay = input("Delay between steps (milliseconds)?")
-        # steps = input("How many steps forward? (200 steps = Make a turn)")
-        # NonlinearSpeed(int(steps))
-        # # print(int(steps))
-        # # forward(int(delay) / 1000.0, int(steps))
         
-        # set_step('0000')
-        
-        # steps = input("How many steps backwards? (200 steps = Make a turn)")
-        # # NonlinearSpeed(int(steps))
-        # backwards(4 / 1000.0, int(int(steps)/4))
-        set_step('0000')
-        NonlinearSpeed(1000)
+        steper.initialize()
+        steper.forward(delay,1000)
+        steper.backward(delay,1000)
+        # NonlinearSpeed(1000)
 except KeyboardInterrupt:
-    GPIO.cleanup()
+    steper.clean()
     pass
