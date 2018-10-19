@@ -47,8 +47,9 @@ try:
         
         steper.initialize()
         steper.forward(delay,300)
-        time.sleep(0.5)
+        time.sleep(0.2)
         steper.backward(delay,300)
+        time.sleep(0.2)
         # NonlinearSpeed(1000)
 except KeyboardInterrupt:
     steper.clean()
