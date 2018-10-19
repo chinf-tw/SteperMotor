@@ -92,20 +92,20 @@ def NonlinearSpeed(steps):
 
 try:
     while True:
-        set_step('0000')
-        # delay = raw_input("Delay between steps (milliseconds)?")
-        steps = input("How many steps forward? (200 steps = Make a turn)")
-        NonlinearSpeed(int(steps))
-        # print(int(steps))
-        # forward(int(delay) / 1000.0, int(steps))
-        
-        set_step('0000')
-        steps = input("How many steps backwards? (200 steps = Make a turn)")
+        # set_step('0000')
+        # delay = input("Delay between steps (milliseconds)?")
+        # steps = input("How many steps forward? (200 steps = Make a turn)")
         # NonlinearSpeed(int(steps))
-        backwards(4 / 1000.0, int(int(steps)/4))
+        # # print(int(steps))
+        # # forward(int(delay) / 1000.0, int(steps))
+        
+        # set_step('0000')
+        
+        # steps = input("How many steps backwards? (200 steps = Make a turn)")
+        # # NonlinearSpeed(int(steps))
+        # backwards(4 / 1000.0, int(int(steps)/4))
+        set_step('0000')
+        NonlinearSpeed(1000)
 except KeyboardInterrupt:
     GPIO.cleanup()
     pass
-    
-
-
