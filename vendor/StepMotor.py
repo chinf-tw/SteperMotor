@@ -78,7 +78,7 @@ class StepMotor(object):
     
     def set_step(self, step):
         for i in range(4):
-            GPIO.output(StepMotor.all_pin[i], step[i])
+            GPIO.output(StepMotor.all_pin[i], int(step[i]))
             pass
         
     def _ward(self, delay, steps, seq):
