@@ -1,4 +1,5 @@
 from vendor.StepMotor import StepMotor
+import time
 def NonlinearSpeed(steps):
     """geometric progression (200 steps = Make a turn)"""
     
@@ -46,6 +47,7 @@ try:
         
         steper.initialize()
         steper.forward(delay,300)
+        time.sleep(0.5)
         steper.backward(delay,300)
         # NonlinearSpeed(1000)
 except KeyboardInterrupt:
