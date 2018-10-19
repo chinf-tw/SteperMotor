@@ -49,6 +49,7 @@ try:
         step = input("期望正轉多少？")
         steper.forward(delay,int(step))
         # time.sleep(0.2)
+        steper.initialize()
         step = input("期望反轉多少？")
         steper.backward(delay,int(step))
         # time.sleep(0.2)
