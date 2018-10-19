@@ -74,7 +74,7 @@ class StepMotor(object):
             forward(10/1000,100)
         """
         steps /= 4
-        self._ward(delay,int(steps),StepMotor.forward_seq)
+        self._ward(delay,int(steps),StepMotor.reverse_seq)
     
     def set_step(self, step):
         for i in range(4):
